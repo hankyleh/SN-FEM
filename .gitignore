@@ -34,8 +34,14 @@
 
 # Executables
 *.exe
-*.out
 *.app
 
 # debug information files
 *.dwo
+
+# third-party libraries
+tpls/
+
+# compilation
+build/
+snsolve

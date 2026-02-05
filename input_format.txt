@@ -1,0 +1,13 @@
+1                    # D - spatial dimensions (1,2,3)
+10                   # I (J, K) - number of cell divisions in x, y, z
+0.1 0.1 0.1 0.1 0.1
+0.1 0.1 0.1 0.1 0.1  # cell widths - I+J+K entries, across multiple lines
+1                    # Q - quadrature points per hemisphere/octant
+0.57735 0.25         # mu_n (eta_n) followed by w_n for each of Q angles
+2                    # M, number of materials
+1.0 0.5
+2.0 0.1              # sig_t, sig_s for each of M materials
+0 0                  # L/R (U/D, F/B) boundary conditions -- 0-vac, 1-refl
+1 1 1 2 2 2 2 1 1 1  # material ID assignment -- IxJxK entries
+0.0 0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0 0.0
+                     # external source -- IxJxK entries
