@@ -1,0 +1,114 @@
+# SN-FEM Input File example and instructions -- 2d using explicit mesh format
+
+# Input file must have TODO extensions
+# Comment lines start with #
+# No in-line comments
+
+# Dimension (cartesian coords) -- 1, 2, 3 [int]
+2
+
+# Mesh definition style -- 0, 1 [int]
+    # 0 : cells by array of widths in each dimension
+    # 1 : define subregions with regular cell widths
+0
+
+# Number of cells in each Dimension "I, J, K" -- [int > 0]
+8 10
+
+# Cell width arrays -- [int] x (I + J + K)
+    # x-dimension
+0.1 0.1 0.1 0.1 0.1
+0.1 0.1 0.1
+    # y-dimension
+0.1 0.1 0.1 0.1 0.1
+0.1 0.1 0.1 0.1 0.1
+
+# Number of quadrature points per hemisphere/octant/... -- [int]
+1
+
+# quadrature node(s) and weight(s) --- [double]
+
+# mu_n      eta_n    w_n
+  0.57735   0.57735  0.25
+
+# number of materials "M" -- [int]
+2
+# highest Legendre order "L" -- [int]
+1
+# number of energy groups "G" -- [int]
+2
+
+# material 1
+    # total_g
+    1.0 0.8
+
+    # fission_g
+    0.0 0.0
+
+    # scattering matrix, l=0 _____
+    # row = original  group
+    # col = resulting group
+
+    0.8 0.2
+    0.0 0.1
+
+    #(1->1) (1->2)
+    #(2->1) (2->2)
+
+    # scattering matrix, l=1
+    0.2 0.1
+    0.0 0.1
+
+# material 2
+    0.4 1.5
+
+    0.2 0.8
+
+    0.1 0.05
+    0.0 0.3
+
+    0.1 0.1
+    0.0 0.1
+
+# boundary conditions -- 0, 1 [int]
+    # 0 : vacuum boundary
+    # 1 : reflective boundary
+
+    0 0 0 0
+
+# material ID -- 1,...,M [int]
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 2 2 2 2 1 1
+1 1 2 2 2 2 1 1 
+1 1 2 2 2 2 1 1
+1 1 2 2 2 2 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+
+# source -- [double >= 0]
+    # Group 1
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0
+0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0
+0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0
+0.0 0.0 1.0 1.0 1.0 1.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+
+    # Group 2
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.2 0.2 0.2 0.2 0.0 0.0
+0.0 0.0 0.2 0.2 0.2 0.2 0.0 0.0
+0.0 0.0 0.2 0.2 0.2 0.2 0.0 0.0
+0.0 0.0 0.2 0.2 0.2 0.2 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0

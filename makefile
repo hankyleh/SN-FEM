@@ -4,7 +4,7 @@ BUILD_DIR := build
 C_FLAGS := -O0 -std=c++17
 CWD := $(CURDIR)
 
-SOURCES := input.cpp echo.cpp parse.cpp msg.cpp main.cpp
+SOURCES := main.cpp configuration.cpp parameters.cpp sn.cpp warnings.cpp visualize.cpp
 OBJECTS := $(SOURCES:.cpp=.o)
 BUILD_OBJECTS := $(addprefix $(BUILD_DIR)/, $(OBJECTS))
 
